@@ -1,3 +1,3 @@
-import Btn from './Button';
+import ButtonUI from './ButtonUI';
 
-export { Btn };
+export { ButtonUI };
