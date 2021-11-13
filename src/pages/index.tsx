@@ -1,41 +1,22 @@
-import React from 'react';
-
-import { GetStaticProps } from 'next';
-
-import { BlogGallery, IBlogGalleryProps } from '../components/blog/BlogGallery';
-import { IPaginationProps } from '../components/pagination/Pagination';
+import { Btn } from '../components';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
-import { Config } from '../utils/Config';
-import { getAllPosts } from '../utils/Content';
 
-const Index = (props: IBlogGalleryProps) => (
-  <Main
-    meta={(
-      <Meta
-        title="Made with Next.js, TypeScript, ESLint, Prettier, PostCSS, Tailwind CSS"
-        description={Config.description}
-      />
-    )}
-  >
-    <BlogGallery posts={props.posts} pagination={props.pagination} />
-  </Main>
-);
+const Index = () => {
+  // const router = useRouter();
 
-export const getStaticProps: GetStaticProps<IBlogGalleryProps> = async () => {
-  const posts = getAllPosts(['title', 'date', 'slug']);
-  const pagination: IPaginationProps = {};
-
-  if (posts.length > Config.pagination_size) {
-    pagination.next = '/page2';
-  }
-
-  return {
-    props: {
-      posts: posts.slice(0, Config.pagination_size),
-      pagination,
-    },
-  };
+  return (
+    <Main
+      meta={
+        <Meta
+          title="Next.js Boilerplate Presentation"
+          description="Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
+        />
+      }
+    >
+      <Btn />
+    </Main>
+  );
 };
 
 export default Index;

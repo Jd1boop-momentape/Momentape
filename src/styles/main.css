@@ -5,9 +5,17 @@ a {
 }
 
 a:hover {
-  @apply underline;
+  @apply border-b-2 border-blue-700;
 }
 
 @tailwind components;
 
 @tailwind utilities;
+
+.content p {
+  @apply my-6;
+}
+
+.content ul {
+  @apply my-6;
+}
